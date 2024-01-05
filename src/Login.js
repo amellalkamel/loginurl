@@ -8,12 +8,10 @@ const Login = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
+
   const handleLogin = async () => {
     try {
       if (userName !== "" && password !== "") {
-        // const id_adresse = "192.168.1.52";
-        // const id_adresse = "localhost";
-
         const id_adresse = "185.98.128.23";
 
         let userInfo = {
