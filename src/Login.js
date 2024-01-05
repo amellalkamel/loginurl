@@ -11,7 +11,11 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       if (userName !== "" && password !== "") {
-        const id_adresse = "192.168.1.52";
+        // const id_adresse = "192.168.1.52";
+        // const id_adresse = "localhost";
+
+        const id_adresse = "185.98.128.23";
+
         let userInfo = {
           username: userName,
           password: password,
@@ -22,7 +26,7 @@ const Login = () => {
           })
           .then((resLogin) => {
             axios
-              .post(`http://${id_adresse}:4012/api/user/desactiver`, {
+              .post(`http://${id_adresse}:4012/api/user/valider`, {
                 user: {
                   username: userName,
                 },
