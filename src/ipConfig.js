@@ -1,4 +1,4 @@
 const ipConfig = {
-  id_adresse: "185.98.128.23",
-};
-export default ipConfig;
+    id_adresse: "192.168.1.52",
+  };
+export default ipConfig
