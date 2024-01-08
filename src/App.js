@@ -1,11 +1,20 @@
 import "./App.css";
 import Login from "./Login";
+import DeleteAccount from "./DeleteAccount";
+import { Route, Routes } from "react-router-dom";
+import { AuthProvider } from "./AuthContext";
 
 function App() {
   return (
-    <div className="App">
-      <Login />
-    </div>
+    <AuthProvider>
+      <div className="App">
+        <Routes>
+          <Route exact path="/" element={<Login />} />
+          <Route exact path="/delete-account" element={<DeleteAccount />} />
+        </Routes>
+      </div>
+    </AuthProvider>
+
   );
 }
 
