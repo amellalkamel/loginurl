@@ -15,7 +15,7 @@ const DeleteAccount = () => {
 
   const handleDelete = () => {
     axios
-      .post(`http://${ipConfig.id_adresse}:4012/api/user/desactiver`, {
+      .post(`https://${ipConfig.id_adresse}:4012/api/user/desactiver`, {
         user: {
           username: userName,
         },
