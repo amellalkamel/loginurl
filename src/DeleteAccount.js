@@ -11,11 +11,15 @@ const DeleteAccount = () => {
   const location = useLocation();
   const state = location.state || {};
   const userName = state.userName;
-  const { isAuthenticated, logout } = useAuth();
+
+  const { isAuthenticated, logout, token } = useAuth();
 
   const handleDelete = () => {
     axios
       .post(`https://${ipConfig.id_adresse}:4012/api/user/desactiver`, {
+        headers: {
+          auth: `${token}`,
+        },
         user: {
           username: userName,
         },
@@ -43,7 +47,7 @@ const DeleteAccount = () => {
       .catch((errDesactivate) => {
         toast.error("Erreur de desactivation du compte", {
           position: "top-right",
-          autoClose: 6000, // Durée d'affichage en millisecondes
+          autoClose: 3000, // Durée d'affichage en millisecondes
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,

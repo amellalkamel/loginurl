@@ -12,7 +12,7 @@ const Login = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { login,setToken } = useAuth();
 
   const handleLogin = async () => {
     try {
@@ -28,6 +28,8 @@ const Login = () => {
             ...userInfo,
           })
           .then((resLogin) => {
+
+            setToken(resLogin.data.token)
             toast.success("Authentification reussie", {
               position: "top-right",
               autoClose: 3000, // Durée d'affichage en millisecondes
@@ -50,7 +52,7 @@ const Login = () => {
           .catch((errorLogin) => {
             toast.error("Erreur d'authentification", {
               position: "top-right",
-              autoClose: 6000, // Durée d'affichage en millisecondes
+              autoClose: 3000, // Durée d'affichage en millisecondes
               hideProgressBar: false,
               closeOnClick: true,
               pauseOnHover: true,
@@ -60,7 +62,7 @@ const Login = () => {
       } else {
         toast.error("Tous les champs sont nécessaires", {
           position: "top-right",
-          autoClose: 6000, // Durée d'affichage en millisecondes
+          autoClose: 3000, // Durée d'affichage en millisecondes
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -70,7 +72,7 @@ const Login = () => {
     } catch (errorLogin) {
       toast.error("Login failed", {
         position: "top-right",
-        autoClose: 6000, // Durée d'affichage en millisecondes
+        autoClose: 3000, // Durée d'affichage en millisecondes
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
