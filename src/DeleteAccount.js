@@ -18,7 +18,7 @@ const DeleteAccount = () => {
     axios
       .post(`https://${ipConfig.id_adresse}:4012/api/user/desactiver`, {
         headers: {
-          auth: `${token}`,
+          Authorization: `Bearer ${token}`,
         },
         user: {
           username: userName,
