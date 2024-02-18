@@ -28,7 +28,7 @@ const Login = () => {
             ...userInfo,
           })
           .then((resLogin) => {
-            setToken(resLogin.data._token)
+            setToken(resLogin.data.token)
             toast.success("Authentification reussie", {
               position: "top-right",
               autoClose: 3000, // Durée d'affichage en millisecondes
