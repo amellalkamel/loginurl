@@ -15,15 +15,26 @@ const DeleteAccount = () => {
   const { isAuthenticated, logout, token } = useAuth();
 
   const handleDelete = () => {
+    // Données à envoyer dans la requête POST
+    const postData = {
+      user: {
+        username: userName,
+      },
+    };
+
+    // En-têtes personnalisés
+    const headers = {
+      'Content-Type': 'application/json', // Exemple d'en-tête
+      'Authorization': `Bearer ${token}`, // Exemple d'en-tête d'autorisation
+      // Ajoutez d'autres en-têtes personnalisés selon vos besoins
+    };
+
+    // Configuration de la requête Axios
+    const config = {
+      headers: headers // Ajoutez vos en-têtes personnalisés ici
+    };
     axios
-      .post(`https://${ipConfig.id_adresse}:4012/api/user/desactiver`, {
-        headers: {
-          authorization: `Bearer ${token}`,
-        },
-        user: {
-          username: userName,
-        },
-      })
+      .post(`https://${ipConfig.id_adresse}:4012/api/user/invalide`,postData,config)
       .then((resDesactivate) => {
         toast.success("Votre compte a été desactiver.", {
           position: "top-right",
