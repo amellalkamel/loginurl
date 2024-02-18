@@ -24,12 +24,11 @@ const Login = () => {
         };
         
         axios
-          .post(`https://${ipConfig.id_adresse}:4012/api/auth/login`, {
+          .post(`http://${ipConfig.id_adresse}:4012/api/public/login`, {
             ...userInfo,
           })
           .then((resLogin) => {
-
-            setToken(resLogin.data.token)
+            setToken(resLogin.data._token)
             toast.success("Authentification reussie", {
               position: "top-right",
               autoClose: 3000, // Durée d'affichage en millisecondes
