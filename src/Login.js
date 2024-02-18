@@ -24,7 +24,7 @@ const Login = () => {
         };
         
         axios
-          .post(`https://${ipConfig.id_adresse}:4012/api/public/login`, {
+          .post(`https://${ipConfig.id_adresse}:4012/api/auth/login`, {
             ...userInfo,
           })
           .then((resLogin) => {
